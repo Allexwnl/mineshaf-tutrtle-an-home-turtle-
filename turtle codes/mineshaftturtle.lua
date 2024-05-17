@@ -1,0 +1,102 @@
+function mine()
+    turtle.dig()
+    turtle.forward()
+    turtle.digUp()
+    turtle.turnRight()
+    turtle.dig()
+    turtle.up()
+    turtle.dig()
+    turtle.digUp()
+    turtle.up()
+    turtle.dig()
+    turtle.turnLeft()
+    turtle.turnLeft()
+    turtle.dig()
+    turtle.down()
+    turtle.dig()
+    turtle.down()
+    turtle.dig()
+    turtle.turnRight()
+end
+
+function mineshaft()
+    turtle.turnLeft()
+    turtle.select(1)
+    turtle.place()
+    turtle.up()
+    turtle.place()
+    turtle.up()
+    turtle.select(2)
+    turtle.place()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.place()
+    turtle.select(1)
+    turtle.down()
+    turtle.place()
+    turtle.down()
+    turtle.place()
+    turtle.down()
+
+    turtle.turnLeft()
+    turtle.back()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.select(3)
+    turtle.place()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnLeft()
+    turtle.place()
+    turtle.up()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.down()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.turnRight()
+
+end
+
+print("How many times should the structure be built? Max(8) times!!")
+local input = read()
+local loopCount = tonumber(input)
+
+if loopCount and loopCount > 8 then
+    print("thats to high of an number!! Please redo the command with a number lower then 8!!")
+else if turtle.getItemCount(1) < 8* loopCount or turtle.getItemCount(2) < 4 * loopCount or turtle.getItemCount(3) < 2 * loopCount then
+    print("You dont have enough items to build the structure!!")
+else 
+if loopCount and loopCount > 0 then
+   for i = 1 * loopCount, loopCount * 5, 1 do
+       mine()
+   end
+    for i = 1, loopCount do
+        mineshaft()
+    end
+    turtle.turnLeft()
+    turtle.select(1)
+    turtle.place()
+    turtle.up()
+    turtle.place()
+    turtle.up()
+    turtle.select(2)
+    turtle.place()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.place()
+    turtle.select(1)
+    turtle.down()
+    turtle.place()
+    turtle.down()
+    turtle.place()
+    turtle.down()
+    turtle.turnLeft()
+else
+    print("Invalid input. Please enter a positive number.")
+end
+end
+end
